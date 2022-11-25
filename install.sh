@@ -140,8 +140,10 @@ if [ -z "${REPOSITORY}" ]; then
 fi
 sudo mkdir -p /etc/cron_schedules
 sudo touch /etc/cron_schedules/cron_schedule
-echo '* 6-19 * * 1-5 /usr/bin/vcgencmd display_power 1 >/dev/null 2>&1' > /etc/cron_schedules/cron_schedule
-echo '* 0-5,20-23 * * * /usr/bin/vcgencmd display_power 0 >/dev/null 2>&1' > /etc/cron_schedules/cron_schedule
+sudo chmod 777 /etc/cron_schedules/cron_schedule
+printf "* 6-19 * * 1-5 /usr/bin/vcgencmd display_power 1 >/dev/null 2>&1
+* 0-5,20-23 * * * /usr/bin/vcgencmd display_power 0 >/dev/null 2>&1
+" > /etc/cron_schedules/cron_schedule
 crontab /etc/cron_schedules/cron_schedule
 
 sudo mkdir -p /etc/ansible

@@ -6,8 +6,18 @@ sudo cp /home/pi/CM_script/splash.png /root/
 sudo cp /home/pi/CM_script/config.txt /root/
 cp /home/pi/CM_script/start_chromium_browser /home/pi/scripts/
 sudo chmod +x /home/pi/CM_script/check_display
+crontab /home/pi/CM_script/turn_off_screen_evening
+crontab /home/pi/CM_script/turn_off_screen_morning
+crontab /home/pi/CM_script/turn_on_screen
 echo '(/bin/sleep 15 && /home/pi/CM_script/check_display)&' | sudo tee -a /etc/rc.local
-read -p "Wprowadz url strony: " url
+read -p "Wprowadz nowa nazwe hosta (np. RPi4-[oznaczenie]): " NEW_HOSTNAME
+CURRENT_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
+echo "Zmiana hostname z $CURRENT_HOSTNAME na $NEW_HOSTNAME..." >&2
+echo $NEW_HOSTNAME | sudo tee /etc/hostname > /dev/null
+sudo sed -i "s/127.0.1.1.*$CURRENT_HOSTNAME\$/127.0.1.1\t$NEW_HOSTNAME/g" /etc/hosts
+echo "Hostname zmieniony na:" >&2
+echo $NEW_HOSTNAME
+read -p "Wprowadz url strony do wyswietlania: " url
 echo $url | sudo tee /boot/fullpageos.txt
 read -p "Wprowadz nowe haslo do  raspberry: " haselko
 echo -e "raspberry\n${haselko}\n${haselko}" | passwd

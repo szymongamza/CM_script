@@ -1,0 +1,1 @@
+*/5 0-7 * * * /usr/bin/vcgencmd display_power 0

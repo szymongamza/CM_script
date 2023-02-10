@@ -2,8 +2,8 @@
 git clone https://github.com/szymongamza/CM_script.git
 sleep 5
 
-sudo cp /home/pi/CM_script/splash.png /root/
-sudo cp /home/pi/CM_script/config.txt /root/
+sudo cp /home/pi/CM_script/splash.png /boot/
+sudo cp /home/pi/CM_script/config.txt /boot/
 cp /home/pi/CM_script/start_chromium_browser /home/pi/scripts/
 sudo chmod +x /home/pi/CM_script/check_display
 crontab /home/pi/CM_script/turn_off_screen_evening

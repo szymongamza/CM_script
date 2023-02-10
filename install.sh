@@ -6,3 +6,5 @@ read -p "Wprowadz url strony: " url
 echo $url | sudo tee /boot/fullpageos.txt
 read -p "Wprowadz nowe haslo do  raspberry: " haselko
 echo -e "raspberry\n${haselko}\n${haselko}" | passwd
+sleep 5
+sudo reboot

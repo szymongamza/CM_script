@@ -1,1 +1,1 @@
-/usr/bin/vcgencmd display_power 1
+*/5 7-21 * * 1-6 /usr/bin/vcgencmd display_power 1

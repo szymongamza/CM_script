@@ -5,6 +5,8 @@ sleep 5
 sudo cp /home/pi/CM_script/splash.png /root/
 sudo cp /home/pi/CM_script/config.txt /root/
 cp /home/pi/CM_script/start_chromium_browser /home/pi/scripts/
+sudo chmod +x /home/pi/CM_script/check_display
+echo '(/bin/sleep 15 && /home/pi/CM_script/check_display)&' | sudo tee -a /etc/rc.local
 read -p "Wprowadz url strony: " url
 echo $url | sudo tee /boot/fullpageos.txt
 read -p "Wprowadz nowe haslo do  raspberry: " haselko

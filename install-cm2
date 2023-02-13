@@ -24,7 +24,5 @@ read -p "Wprowadz nowe haslo do  raspberry: " haselko
 echo -e "raspberry\n${haselko}\n${haselko}" | passwd
 
 cp /home/pi/CM_script/passwd /home/pi/.vnc
-
-echo -e "${haselko}\n${haselko}\ny\n" | x11vnc -storepasswd
 sleep 5
 sudo reboot

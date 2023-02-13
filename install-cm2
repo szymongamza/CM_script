@@ -22,6 +22,19 @@ read -p "Wprowadz url strony do wyswietlania: " url
 echo $url | sudo tee /boot/fullpageos.txt
 read -p "Wprowadz nowe haslo do  raspberry: " haselko
 echo -e "raspberry\n${haselko}\n${haselko}" | passwd
+
+prog=/usr/bin/vncpasswd
+/usr/bin/expect <<EOF
+spawn "$prog"
+expect "Password:"
+send "$haselko\r"
+expect "Verify:"
+send "$haselko\r"
+expect eof
+exit
+EOF
+
+
 echo -e "${haselko}\n${haselko}\ny\n" | x11vnc -storepasswd
 sleep 5
 sudo reboot

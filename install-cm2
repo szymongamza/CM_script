@@ -23,6 +23,7 @@ echo $url | sudo tee /boot/fullpageos.txt
 read -p "Wprowadz nowe haslo do  raspberry: " haselko
 echo -e "raspberry\n${haselko}\n${haselko}" | passwd
 
+
 prog=vncpasswd
 /usr/bin/expect <<EOF
 spawn "$prog"
@@ -31,6 +32,7 @@ send "$haselko\r"
 expect "Verify:"
 send "$haselko\r"
 expect eof
+
 
 echo -e "${haselko}\n${haselko}\ny\n" | x11vnc -storepasswd
 sleep 5

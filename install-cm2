@@ -23,7 +23,7 @@ echo $url | sudo tee /boot/fullpageos.txt
 read -p "Wprowadz nowe haslo do  raspberry: " haselko
 echo -e "raspberry\n${haselko}\n${haselko}" | passwd
 
-prog=/usr/bin/vncpasswd
+prog=vncpasswd
 /usr/bin/expect <<EOF
 spawn "$prog"
 expect "Password:"

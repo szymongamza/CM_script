@@ -1,2 +1,3 @@
+#!/bin/bash -e
 read -p "Wprowadz url strony do wyswietlania: " url
 echo $url | sudo tee /boot/fullpageos.txt

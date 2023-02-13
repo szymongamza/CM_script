@@ -31,9 +31,6 @@ send "$haselko\r"
 expect "Verify:"
 send "$haselko\r"
 expect eof
-exit
-EOF
-
 
 echo -e "${haselko}\n${haselko}\ny\n" | x11vnc -storepasswd
 sleep 5

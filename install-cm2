@@ -2,6 +2,7 @@
 git clone https://github.com/szymongamza/CM_script.git
 sleep 5
 
+sudo timedatectl set-timezone Europe/Warsaw
 sudo cp /home/pi/CM_script/splash.png /boot/
 sudo cp /home/pi/CM_script/config.txt /boot/
 cp /home/pi/CM_script/start_chromium_browser /home/pi/scripts/
@@ -9,6 +10,7 @@ sudo chmod +x /home/pi/CM_script/check_display
 crontab /home/pi/CM_script/turn_off_screen_evening
 crontab /home/pi/CM_script/turn_off_screen_morning
 crontab /home/pi/CM_script/turn_on_screen
+crontab /home/pi/CM_script/every_day_reboot
 echo '(/bin/sleep 15 && /home/pi/CM_script/check_display)&' | sudo tee -a /etc/rc.local
 read -p "Wprowadz nowa nazwe hosta (np. RPi4-[oznaczenie]): " NEW_HOSTNAME
 CURRENT_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`

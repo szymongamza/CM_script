@@ -1,0 +1,1 @@
+cat /home/pi/CM_script/cron_scripts/* | crontab -
